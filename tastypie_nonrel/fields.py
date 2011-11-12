@@ -15,14 +15,6 @@ class ListField(ApiField):
     """
     dehydrated_type     =   'list'
 
-    def dehydrate(self, obj):
-        return self.convert(super(ListField, self).dehydrate(obj))
-
-    def convert(self, value):
-        if value is None:
-            return None
-        return value 
-
 class EmbeddedListField(ToManyField):
     """
         Represents a list of embedded objects. It must be used in conjunction
@@ -70,15 +62,6 @@ class EmbeddedListField(ToManyField):
 
 class DictField(ApiField):
     dehydrated_type     =   'dict'
-    
-    def dehydrate(self, obj):
-        return self.convert(super(DictField, self).dehydrate(obj))
-
-    def convert(self, value):
-        if value is None:
-            return None
-
-        return value
 
 class EmbeddedModelField(ToOneField):
     """
